@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "View";
+}
+
+
+@{ Layout = null; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        table {
+            /*border-collapse: collapse;*/
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #e8e8e8;
+            text-align: center;
+        }
+
+        td {
+            height: 50px;
+            border: 1px solid #e8e8e8;
+        }
+
+        th {
+            height: 50px;
+            border: 1px solid #e8e8e8;
+            background: #527aff;
+        }
+
+        .item-buttom {
+            background: #527aff;
+            color: white;
+            padding: 5px 10px 5px 10px;
+            text-decoration: none;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <th>编号</th>
+                <th>商品名称</th>
+                <th>单价</th>
+                <th>剩余数量</th>
+                <th>删除</th>
+            </tr>
+            @foreach (var item in ViewBag.list)
+            {
+                <tr>
+                    <td>@item.ID</td>
+                    <td>@item.GoodsName</td>
+                    <td>￥@item.Price</td>
+                    <td>@item.Count</td>
+                    <td><a class="item-buttom" href="Delete?id=@item.ID"  onclick="return confirm('是否删除该信息')">删除</a></td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
+
